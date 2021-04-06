@@ -1,7 +1,3 @@
-import funWord from './words.js';
-
-
-var array = funWord().split("\n");
 
 
 const btn = document.getElementById('genPass');
@@ -23,10 +19,14 @@ input.addEventListener("keyup", function(event) {
 
 
 function genPass() {
+    var vowels = "aeiouy";
+    var consonants = "bcdfghjklmnpqrstvwxz"
     let pass = '';
     for (let index = 0; index < input.value; index++) {
-        const number = Math.floor(Math.random() * array.length);
-        pass += array[number].firstLetterCaps();
+        // const number = Math.floor(Math.random() * array.length);
+        pass += consonants.charAt(Math.floor(Math.random() * consonants.length));
+        pass += vowels.charAt(Math.floor(Math.random() * vowels.length));
+       
     }
     
     let number = Math.floor(Math.random() * 9999);
