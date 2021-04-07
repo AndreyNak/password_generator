@@ -74,7 +74,7 @@ function genPass() {
     complite(pass);
 }
 
-var number;
+var number = 1;
 pass = 'abc';
 function complite(item){
     if(setNumbees.checked){
