@@ -31,7 +31,8 @@ const func2 = () => {
     for (let index = 0; index <  size; index++) {
         number+='9';    
     }
-    return number;
+    number = Number(number);
+    return complite(number);
    
 }
 
@@ -67,19 +68,26 @@ function genPass() {
         pass = pass.substring(elem1.length);
         pass = elem1 + pass;
     }
-    
+    complite(pass);
+}
+var number;
 
-    
-    password.textContent  = pass;
+function complite(item){
     if(setNumbees.checked){
-        number = Number(func2());
-        password.textContent  = Math.floor(Math.random() * number) + pass + Math.floor(Math.random() * number);
-        countNumbers.style.display = "flex";
+        if(Number.isInteger(item)){
+            number = item;
+            console.log(number);
+            password.textContent  = Math.floor(Math.random() * number) + pass + Math.floor(Math.random() * number);
+            countNumbers.style.display = "flex";
+        }else{
+            pass = item;
+            password.textContent  = Math.floor(Math.random() * number) + pass + Math.floor(Math.random() * number);
+            countNumbers.style.display = "flex";
+        }
 
     } else {
+        pass = item;
         password.textContent  = pass;
         countNumbers.style.display = "none";
     }
-    // password.textContent  = Math.floor(Math.random() * number) + pass + Math.floor(Math.random() * number);
-
 }
