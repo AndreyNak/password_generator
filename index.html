@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
     <h1>Генератор паролей</h1>
-    <label>Длина пароля:</label>
-    
-    <input type="range" min="1" max="10" value="1" id="input" oninput="func1()">
+    <div>
+        <label>Добавить цифры:</label>
+        <input type="checkbox" id="setNumbees">
+        <label id="labelCountNums" style="display: none;">количество цифр:</label>
+        <input type="range" min="1" max="20" value="1" id="countNumbers" oninput="func2()" style="display: none;">
+        <label id="valueCountNums"></label>
+    </div>
+    <label>Колличество букв:</label>
+    <input type="range" min="1" max="20" value="1" id="input" oninput="func1()">
     <label id="value"></label>
     <h2 id="pass"></h2>
     <script src="script.js" ></script>
