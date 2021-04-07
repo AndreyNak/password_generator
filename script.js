@@ -1,9 +1,39 @@
 const input = document.getElementById('input');
 const password = document.getElementById('pass');
 const myvalue = document.getElementById('value');
+const setNumbees = document.getElementById('setNumbees');
+const countNumbers = document.getElementById('countNumbers');
+const labelCountNums = document.getElementById('labelCountNums');
+const valueCountNums = document.getElementById('valueCountNums');
+
+setNumbees.addEventListener('click', function(){
+    if(setNumbees.checked){
+        countNumbers.style.display = "flex";
+        labelCountNums.style.display = 'flex';
+        valueCountNums.style.display = 'block';
+
+    }else{
+        countNumbers.style.display = "none";
+        labelCountNums.style.display = 'none';
+        valueCountNums.style.display = 'none';
+    }
+})
+   
 
 myvalue.innerHTML = input.value;
 
+const func2 = () => {
+    const countNumbers = document.getElementById('countNumbers');
+    const valueCountNums = document.getElementById('valueCountNums');
+    valueCountNums.innerText = countNumbers.value;
+    var number = '';
+    var size = countNumbers.value;
+    for (let index = 0; index <  size; index++) {
+        number+='9';    
+    }
+    return number;
+   
+}
 
   const func1 = () => {
     const range = document.getElementById('input');
@@ -20,8 +50,11 @@ function genPass() {
     var consonants = "bcdfghjklmnpqrstvwxz"
     let pass = '';
     for (let index = 0; index < input.value; index++) {
-        pass += consonants.charAt(Math.floor(Math.random() * consonants.length));
-        pass += vowels.charAt(Math.floor(Math.random() * vowels.length));
+        if (index%2 === 0){
+            pass += consonants.charAt(Math.floor(Math.random() * consonants.length));
+        } else {
+            pass += vowels.charAt(Math.floor(Math.random() * vowels.length));
+        }
        
     }
     if(pass.length > 4){
@@ -34,12 +67,19 @@ function genPass() {
         pass = pass.substring(elem1.length);
         pass = elem1 + pass;
     }
-    var number = '';
-    var size = Math.floor(Math.random() * input.value);
-    for (let index = 0; index <  size; index++) {
-        number+='9';    
+    
+
+    
+    password.textContent  = pass;
+    if(setNumbees.checked){
+        number = Number(func2());
+        password.textContent  = Math.floor(Math.random() * number) + pass + Math.floor(Math.random() * number);
+        countNumbers.style.display = "flex";
+
+    } else {
+        password.textContent  = pass;
+        countNumbers.style.display = "none";
     }
-    number = Number(number);
-    password.textContent  = Math.floor(Math.random() * number) + pass + Math.floor(Math.random() * number);
+    // password.textContent  = Math.floor(Math.random() * number) + pass + Math.floor(Math.random() * number);
 
 }
