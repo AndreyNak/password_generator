@@ -6,6 +6,9 @@ const countNumbers = document.getElementById('countNumbers');
 const labelCountNums = document.getElementById('labelCountNums');
 const valueCountNums = document.getElementById('valueCountNums');
 
+
+
+
 setNumbees.addEventListener('click', function(){
     if(setNumbees.checked){
         countNumbers.style.display = "flex";
@@ -70,8 +73,9 @@ function genPass() {
     }
     complite(pass);
 }
-var number;
 
+var number;
+pass = 'abc';
 function complite(item){
     if(setNumbees.checked){
         if(Number.isInteger(item)){
