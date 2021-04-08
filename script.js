@@ -5,20 +5,25 @@ const setNumbees = document.getElementById('setNumbees');
 const countNumbers = document.getElementById('countNumbers');
 const labelCountNums = document.getElementById('labelCountNums');
 const valueCountNums = document.getElementById('valueCountNums');
-
+const selectSide = document.getElementById('selectSide');
+const numLeft = document.getElementById('numLeft');
+const numRight = document.getElementById('numRight');
 
 
 
 setNumbees.addEventListener('click', function(){
     if(setNumbees.checked){
-        countNumbers.style.display = "flex";
-        labelCountNums.style.display = 'flex';
+        countNumbers.style.display = "block";
+        labelCountNums.style.display = 'block';
         valueCountNums.style.display = 'block';
+        selectSide.style.display = 'block';
+
 
     }else{
         countNumbers.style.display = "none";
         labelCountNums.style.display = 'none';
         valueCountNums.style.display = 'none';
+        selectSide.style.display = 'none';
     }
 })
    
@@ -45,6 +50,10 @@ const func2 = () => {
     p.innerText = range.value;
     genPass();
 }
+
+window.addEventListener('DOMContentLoaded', function(){
+    genPass();
+})
 
 
 function genPass() {
@@ -74,18 +83,22 @@ function genPass() {
     complite(pass);
 }
 
-var number = 1;
-pass = 'abc';
+window.addEventListener('DOMContentLoaded', function(){
+    number = 1;
+    pass = 'abc';
+})
+
+
 function complite(item){
     if(setNumbees.checked){
         if(Number.isInteger(item)){
             number = item;
             console.log(number);
-            password.textContent  = Math.floor(Math.random() * number) + pass + Math.floor(Math.random() * number);
+            selectNumber(pass, number);
             countNumbers.style.display = "flex";
         }else{
             pass = item;
-            password.textContent  = Math.floor(Math.random() * number) + pass + Math.floor(Math.random() * number);
+            selectNumber(pass, number);
             countNumbers.style.display = "flex";
         }
 
@@ -94,4 +107,17 @@ function complite(item){
         password.textContent  = pass;
         countNumbers.style.display = "none";
     }
+}
+
+function selectNumber(pass, number){
+    if(numLeft.checked && numRight.checked){
+        password.textContent  = Math.floor(Math.random() * number) + pass + Math.floor(Math.random() * number);
+    } else if (numLeft.checked){
+        password.textContent  = Math.floor(Math.random() * number) + pass;
+    } else if (numRight.checked) {
+        password.textContent  = pass + Math.floor(Math.random() * number);
+    } else {
+        password.textContent  = pass;
+    }
+    
 }
