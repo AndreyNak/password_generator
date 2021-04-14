@@ -1,4 +1,4 @@
-import Costomizator from './engine.js';
+import GenerationPassword from './engine.js';
 
 const input = document.getElementById('input');
 const pass = document.getElementById('pass');
@@ -21,27 +21,27 @@ const options = {
 }
 
 setNumbees.addEventListener('click', () => {
-    const obj = new Costomizator(options);
+    const obj = new GenerationPassword(options);
     obj.checkedNums(setNumbees,HideNumbersId);
 })
 
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    const obj = new Costomizator(options);
+    const obj = new GenerationPassword(options);
     pass.innerText = obj.genPass();
     value.innerText = input.value;
 })
 
 
 input.addEventListener('change', () => {
-    const obj = new Costomizator(options);
+    const obj = new GenerationPassword(options);
     pass.innerText = obj.genPass();
     value.innerText = input.value;
 })
 
 countNumbers.addEventListener('change', () => {
-    const obj = new Costomizator(options);
+    const obj = new GenerationPassword(options);
     pass.innerText = obj.genPass();
     value.innerText = input.value;
 })
