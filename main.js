@@ -26,6 +26,31 @@ setNumbees.addEventListener('click', () => {
 })
 
 
+setNumbees.addEventListener('click', () => {
+    const obj = new PasswordGenerator(options);
+    pass.innerText = obj.genPass();
+    value.innerText = input.value;
+})
+
+
+numLeft.addEventListener('click', () => {
+    const obj = new PasswordGenerator(options);
+    if (numLeft.checked){
+        pass.innerText = obj.selectNumber(numLeft, numRight);
+    } else {
+        pass.innerText = obj.selectNumber(numLeft, numRight);
+    }
+})
+
+numRight.addEventListener('click', () => {
+    const obj = new PasswordGenerator(options);
+    if (numRight.checked){
+        pass.innerText = obj.selectNumber(numLeft, numRight);
+    } else {
+        pass.innerText = obj.selectNumber(numLeft, numRight);
+    }
+})
+
 
 window.addEventListener('DOMContentLoaded', () => {
     const obj = new PasswordGenerator(options);
