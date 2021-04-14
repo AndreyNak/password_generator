@@ -34,13 +34,13 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 
-input.addEventListener('change', () => {
+input.addEventListener('input', () => {
     const obj = new PasswordGenerator(options);
     pass.innerText = obj.genPass();
     value.innerText = input.value;
 })
 
-countNumbers.addEventListener('change', () => {
+countNumbers.addEventListener('input', () => {
     const obj = new PasswordGenerator(options);
     pass.innerText = obj.genPass();
     value.innerText = input.value;
