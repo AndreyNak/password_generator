@@ -1,4 +1,4 @@
-import GenerationPassword from './engine.js';
+import PasswordGenerator from './engine.js';
 
 const input = document.getElementById('input');
 const pass = document.getElementById('pass');
@@ -21,27 +21,27 @@ const options = {
 }
 
 setNumbees.addEventListener('click', () => {
-    const obj = new GenerationPassword(options);
+    const obj = new PasswordGenerator(options);
     obj.checkedNums(setNumbees,HideNumbersId);
 })
 
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    const obj = new GenerationPassword(options);
+    const obj = new PasswordGenerator(options);
     pass.innerText = obj.genPass();
     value.innerText = input.value;
 })
 
 
 input.addEventListener('change', () => {
-    const obj = new GenerationPassword(options);
+    const obj = new PasswordGenerator(options);
     pass.innerText = obj.genPass();
     value.innerText = input.value;
 })
 
 countNumbers.addEventListener('change', () => {
-    const obj = new GenerationPassword(options);
+    const obj = new PasswordGenerator(options);
     pass.innerText = obj.genPass();
     value.innerText = input.value;
 })
