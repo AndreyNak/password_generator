@@ -1,4 +1,4 @@
-import PasswordGenerator from './engine.js';
+import PasswordGenerator from './passwordGenerator.js';
 
 const input = document.getElementById('input');
 const pass = document.getElementById('pass');
