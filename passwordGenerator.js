@@ -44,7 +44,7 @@ export default class PasswordGenerator {
             }
            
         }
-        if(pass.length > 4){
+        if(pass.length > 10){
             var elem = Math.floor(Math.random() * combination1.length);
             elem = combination1[elem];
             pass = pass.substring(0, pass.length - elem.length);
