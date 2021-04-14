@@ -1,4 +1,4 @@
-import Costomizator from './costomizator.js';
+import Costomizator from './engine.js';
 
 const input = document.getElementById('input');
 const pass = document.getElementById('pass');
