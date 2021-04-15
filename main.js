@@ -5,7 +5,7 @@ const options = {
     lengthLetters: 5,
     lengthNumbers: 3,
     setNumbers: true,
-    leftNumbers: false,
+    leftNumbers: true,
     rightNumbers: false
 }
 
