@@ -1,72 +1,14 @@
-import PasswordGenerator from './passwordGenerator.js';
-
-const input = document.getElementById('input');
-const pass = document.getElementById('pass');
-const value = document.getElementById('value');
-
-const HideNumbersId = document.getElementById('HideNumbers');
-
-const setNumbees  = document.getElementById('setNumbees');
-const countNumbers = document.getElementById('countNumbers');
-const valueCountNums = document.getElementById('valueCountNums');
-const numLeft = document.getElementById('numLeft');
-const numRight = document.getElementById('numRight');
+import PasswordGeneration from './passwordGenerator.js';
 
 
 const options = {
-    numLeft:numLeft,
-    numRight:numRight,
-    countNumbers:countNumbers,
-    valueCountNums:valueCountNums
+    lengthLetters: 5,
+    lengthNumbers: 3,
+    setNumbers: true,
+    leftNumbers: false,
+    rightNumbers: false
 }
 
-setNumbees.addEventListener('click', () => {
-    const obj = new PasswordGenerator(options);
-    obj.checkedNums(setNumbees,HideNumbersId);
-})
+const obj  = new PasswordGeneration(options);
 
-
-setNumbees.addEventListener('click', () => {
-    const obj = new PasswordGenerator(options);
-    pass.innerText = obj.genPass();
-    value.innerText = input.value;
-})
-
-
-numLeft.addEventListener('click', () => {
-    const obj = new PasswordGenerator(options);
-    if (numLeft.checked){
-        pass.innerText = obj.selectNumber(numLeft, numRight);
-    } else {
-        pass.innerText = obj.selectNumber(numLeft, numRight);
-    }
-})
-
-numRight.addEventListener('click', () => {
-    const obj = new PasswordGenerator(options);
-    if (numRight.checked){
-        pass.innerText = obj.selectNumber(numLeft, numRight);
-    } else {
-        pass.innerText = obj.selectNumber(numLeft, numRight);
-    }
-})
-
-
-window.addEventListener('DOMContentLoaded', () => {
-    const obj = new PasswordGenerator(options);
-    pass.innerText = obj.genPass();
-    value.innerText = input.value;
-})
-
-
-input.addEventListener('input', () => {
-    const obj = new PasswordGenerator(options);
-    pass.innerText = obj.genPass();
-    value.innerText = input.value;
-})
-
-countNumbers.addEventListener('input', () => {
-    const obj = new PasswordGenerator(options);
-    pass.innerText = obj.genPass();
-    value.innerText = input.value;
-})
+console.log(obj.genPass());
