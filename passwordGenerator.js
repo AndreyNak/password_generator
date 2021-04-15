@@ -1,28 +1,16 @@
-export default class PasswordGenerator {
-    static ck = false;
+export default class PasswordGeneration {
 
     constructor(options){
-        this.numLeft = options.numLeft;
-        this.numRight = options.numRight;
-        this.countNumbers = options.countNumbers;
-        this.valueCountNums = options.valueCountNums;
+        this.lengthLetters = options.lengthLetters;
+        this.lengthNumbers = options.lengthNumbers;
+        this.setNumbers = options.setNumbers;
+        this.leftNumbers = options.leftNumbers;
+        this.rightNumbers = options.rightNumbers;
     }
-
-    checkedNums(checkBox, tagId) {
-        if(checkBox.checked){
-            tagId.style.display = 'block';
-            PasswordGenerator.ck = true;
-        }else{
-            tagId.style.display = 'none';
-            PasswordGenerator.ck = false;
-        }
-    }
-
 
     genNumbers(){
-        this.valueCountNums.innerText =  this.countNumbers.value;
         var number = '';
-        var size =  this.countNumbers.value;
+        var size =  this.lengthNumbers;
         for (let index = 0; index <  size; index++) {
             number+='9';    
         }
@@ -30,19 +18,20 @@ export default class PasswordGenerator {
         return number;
     }
 
-    genLetters() {
+
+    genLetters(){
         const combination1 = ['tch','ck','nk','gh','tion','ture','sure', 'igh'];
-        const combination2 = ['wh','qu','wr','kn','wo','wa']
+        const combination2 = ['wh','qu','wr','kn','wo','wa'];
         var vowels = "aeiouy";
         var consonants = "bcdfghjklmnpqrstvwxz"
         let pass = '';
-        for (let index = 0; index < input.value; index++) {
+        for (let index = 0; index < this.lengthLetters; index++) {
             if (index%2 === 0){
                 pass += consonants.charAt(Math.floor(Math.random() * consonants.length));
             } else {
                 pass += vowels.charAt(Math.floor(Math.random() * vowels.length));
             }
-           
+        
         }
         if(pass.length > 10){
             var elem = Math.floor(Math.random() * combination1.length);
@@ -58,21 +47,21 @@ export default class PasswordGenerator {
         return pass;
     }
 
-    genPass(){
-        if (PasswordGenerator.ck){
-            return this.selectNumber( this.numLeft,this.numRight);
-        } 
-        return this.genLetters();    
+   genPass(){
+    if (this.setNumbers){
+        return this.selectNumber( this.leftNumbers,this.rightNumbers);
+    } 
+    return this.genLetters();    
     }
 
-    selectNumber(numLeft,numRight){
-        
-        if(numLeft.checked && numRight.checked){
+    selectNumber(leftNumbers,rightNumbers){
+            
+        if(leftNumbers && rightNumbers){
             return this.randomNumber(this.genNumbers()) + this.genLetters() + this.randomNumber(this.genNumbers());
-        } else if (numLeft.checked) {
+        } else if (leftNumbers) {
             return this.randomNumber(this.genNumbers()) + this.genLetters(); 
-        } else if (numRight.checked) {
-           return this.genLetters() + this.randomNumber(this.genNumbers())
+        } else if (rightNumbers) {
+        return this.genLetters() + this.randomNumber(this.genNumbers())
         }  
         return  this.genLetters();
     }
@@ -80,4 +69,6 @@ export default class PasswordGenerator {
     randomNumber(number){
         return Math.floor(Math.random() * number)   
     }
+
+
 }
