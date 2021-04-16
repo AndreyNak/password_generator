@@ -47,12 +47,14 @@ export default class PasswordGeneration {
         return pass;
     }
 
+
    genPass(){
     if (this.setNumbers){
         return this.selectNumber( this.leftNumbers,this.rightNumbers);
     } 
     return this.genLetters();    
     }
+
 
     selectNumber(){
             
@@ -69,6 +71,4 @@ export default class PasswordGeneration {
     randomNumber(number){
         return Math.floor(Math.random() * number)   
     }
-
-
 }
