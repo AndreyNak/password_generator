@@ -54,13 +54,13 @@ export default class PasswordGeneration {
     return this.genLetters();    
     }
 
-    selectNumber(leftNumbers,rightNumbers){
+    selectNumber(){
             
-        if(leftNumbers && rightNumbers){
+        if( this.leftNumbers && this.rightNumbers){
             return this.randomNumber(this.genNumbers()) + this.genLetters() + this.randomNumber(this.genNumbers());
-        } else if (leftNumbers) {
+        } else if (this.leftNumbers) {
             return this.randomNumber(this.genNumbers()) + this.genLetters(); 
-        } else if (rightNumbers) {
+        } else if (this.rightNumbers) {
         return this.genLetters() + this.randomNumber(this.genNumbers())
         }  
         return  this.genLetters();
